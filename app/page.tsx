@@ -1,16 +1,9 @@
-"use client";
-import { OrbitControls } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
+import { TextToSpeech } from "@/components/TextToSpeech";
 
 export default function Home() {
 	return (
 		<main>
-			<Canvas>
-				<mesh>
-					<boxGeometry />
-					<OrbitControls />
-				</mesh>
-			</Canvas>
+			<TextToSpeech />
 		</main>
 	);
 }
