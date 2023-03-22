@@ -13,12 +13,18 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
 	const { userText } = await request.json();
 
-	const completion = await openai.createChatCompletion({
-		model: "gpt-3.5-turbo",
-		messages: [{ role: "user", content: userText }],
-	});
+	// const completion = await openai.createChatCompletion({
+	// 	model: "gpt-3.5-turbo",
+	// 	messages: [{ role: "user", content: userText }],
+	// });
 
-	const aiMessage = completion.data.choices[0].message?.content;
+	// const aiMessage = completion.data.choices[0].message?.content;
 
-	return NextResponse.json({ message: aiMessage }, { status: 200 });
+	return NextResponse.json(
+		{
+			message:
+				"In the history of Europe, the Middle Ages or medieval period (also spelled mediæval or mediaeval) lasted approximately from the late 5th to the late 15th centuries, similar to the post-classical period of global history.",
+		},
+		{ status: 200 }
+	);
 }

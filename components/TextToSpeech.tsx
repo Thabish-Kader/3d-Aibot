@@ -1,24 +1,32 @@
 "use client";
+import { AppContext } from "../app/context/IsPlayingContext";
 import { sendTextToOpenAi } from "@/utils/sendTextToOpenai";
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useContext, useState } from "react";
 
 export const TextToSpeech = () => {
 	const [userText, setUserText] = useState("");
 	const [isLoading, setIsLoading] = useState(false);
+	const { isPlaying, setIsPlaying } = useContext(AppContext);
 	const synth = typeof window !== "undefined" ? window.speechSynthesis : null;
 	const voices = synth?.getVoices();
 
-	const seletedVoice = voices?.find((voice) => voice.name === "Albert");
+	const seletedVoice = voices?.find((voice) => voice.name === "Tessa"); // Other voice that sounds good Karen, Tessa, Trinoids
 
 	const speak = (textToSpeak: string) => {
 		const utterance = new SpeechSynthesisUtterance(textToSpeak);
-		utterance.rate = -1;
+		utterance.rate = 1;
 		utterance.voice = seletedVoice!;
+
 		synth?.speak(utterance);
+		setIsPlaying(true);
+		utterance.onend = () => {
+			setIsPlaying(false);
+		};
 	};
 
 	async function handleUserText(event: FormEvent<HTMLFormElement>) {
 		event.preventDefault();
+
 		setIsLoading(true);
 		try {
 			const message = await sendTextToOpenAi(userText);

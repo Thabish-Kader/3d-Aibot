@@ -1,11 +1,14 @@
 import { ChatBotCanvas } from "@/components/ChatBotCanvas";
 import { TextToSpeech } from "@/components/TextToSpeech";
+import { IsPlayingProvider } from "./context/IsPlayingContext";
 
 export default function Home() {
 	return (
 		<main className="h-screen">
-			{/* <TextToSpeech /> */}
-			<ChatBotCanvas />
+			<IsPlayingProvider>
+				<TextToSpeech />
+				<ChatBotCanvas />
+			</IsPlayingProvider>
 		</main>
 	);
 }
