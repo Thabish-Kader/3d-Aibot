@@ -19,5 +19,6 @@ export async function POST(request: Request) {
 	});
 
 	const aiMessage = completion.data.choices[0].message?.content;
+
 	return NextResponse.json({ message: aiMessage }, { status: 200 });
 }

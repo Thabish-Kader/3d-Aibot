@@ -1,4 +1,5 @@
 "use client";
+import { sendTextToOpenAi } from "@/utils/sendTextToOpenai";
 import React, { FormEvent, useState } from "react";
 
 export const TextToSpeech = () => {
@@ -20,14 +21,15 @@ export const TextToSpeech = () => {
 		event.preventDefault();
 		setIsLoading(true);
 		try {
-			const response = await fetch("/api/openai", {
-				method: "POST",
-				headers: {
-					"Content-type": "application/json",
-				},
-				body: JSON.stringify({ userText }),
-			});
-			const { message } = await response.json();
+			// const response = await fetch("/api/openai", {
+			// 	method: "POST",
+			// 	headers: {
+			// 		"Content-type": "application/json",
+			// 	},
+			// 	body: JSON.stringify({ userText }),
+			// });
+			// const { message } = await response.json();
+			const message = await sendTextToOpenAi(userText);
 			console.log(message);
 			speak(message);
 		} catch (error) {
