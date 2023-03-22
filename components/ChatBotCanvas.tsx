@@ -21,7 +21,10 @@ const Head = () => {
 		if (isPlaying) {
 			action?.play();
 		} else {
-			action?.fadeOut(1);
+			action?.fadeOut(0.5);
+			setTimeout(() => {
+				action?.stop();
+			}, 500);
 		}
 	}, [isPlaying, action]);
 

@@ -10,11 +10,11 @@ export const TextToSpeech = () => {
 	const synth = typeof window !== "undefined" ? window.speechSynthesis : null;
 	const voices = synth?.getVoices();
 
-	const seletedVoice = voices?.find((voice) => voice.name === "Tessa"); // Other voice that sounds good Karen, Tessa, Trinoids
+	const seletedVoice = voices?.find((voice) => voice.name === "Karen"); // Other voice that sounds good Karen, Tessa, Trinoids
 
 	const speak = (textToSpeak: string) => {
 		const utterance = new SpeechSynthesisUtterance(textToSpeak);
-		utterance.rate = 1;
+		utterance.rate = 0.9;
 		utterance.voice = seletedVoice!;
 
 		synth?.speak(utterance);
@@ -42,20 +42,25 @@ export const TextToSpeech = () => {
 	}
 
 	return (
-		<form onSubmit={handleUserText} className="space-x-2 pt-2">
-			<input
-				type="text"
-				value={userText}
-				className="bg-transparent border outline-none  rounded-lg placeholder:text-yellow-500 p-2 text-orange-500"
-				onChange={(e) => setUserText(e.target.value)}
-				placeholder="Enter text"
-			/>
-			<button
-				disabled={isLoading}
-				className="text-yellow-500 p-2 border rounded-lg disabled:text-yellow-300 disabled:cursor-not-allowed"
+		<div className="relative top-0 z-50 ">
+			<form
+				onSubmit={handleUserText}
+				className="absolute top-[800px] left-[30%]  space-x-2 pt-2 "
 			>
-				{isLoading ? "thinking..." : "Speak"}
-			</button>
-		</form>
+				<input
+					type="text"
+					value={userText}
+					className="bg-transparent w-[510px] border outline-none  rounded-lg placeholder:text-yellow-500 p-2 text-orange-500"
+					onChange={(e) => setUserText(e.target.value)}
+					placeholder="What do you want to know human...."
+				/>
+				<button
+					disabled={isLoading}
+					className="text-yellow-500 p-2 border rounded-lg disabled:text-yellow-100 disabled:cursor-not-allowed disabled:bg-gray-500"
+				>
+					{isLoading ? "thinking..." : "Ask"}
+				</button>
+			</form>
+		</div>
 	);
 };
