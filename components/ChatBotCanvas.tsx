@@ -1,14 +1,15 @@
 "use client";
-
 import { AppContext } from "../app/context/IsPlayingContext";
 import {
 	Environment,
+	Html,
+	Loader,
 	OrbitControls,
 	useAnimations,
 	useGLTF,
 } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { useContext, useEffect } from "react";
+import { Suspense, useContext, useEffect } from "react";
 
 //Resource to Head : https://sketchfab.com/3d-models/blender-sushi-virtual-journal-16th-april-2020-634af2ae983f4fb8a9295e6b1b3d5c74
 const Head = () => {
@@ -42,7 +43,15 @@ export const ChatBotCanvas = () => {
 				maxAzimuthAngle={Math.PI * 0.5}
 			/>
 			<Environment preset="studio" />
-			<Head />
+			<Suspense
+				fallback={
+					<Html>
+						<Loader />
+					</Html>
+				}
+			>
+				<Head />
+			</Suspense>
 		</Canvas>
 	);
 };
