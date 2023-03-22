@@ -3,6 +3,7 @@ import React, { FormEvent, useState } from "react";
 
 export const TextToSpeech = () => {
 	const [userText, setUserText] = useState("");
+	const [isLoading, setIsLoading] = useState(false);
 	const synth = typeof window !== "undefined" ? window.speechSynthesis : null;
 	const voices = synth?.getVoices();
 
@@ -17,16 +18,26 @@ export const TextToSpeech = () => {
 
 	async function handleUserText(event: FormEvent<HTMLFormElement>) {
 		event.preventDefault();
-		const response = await fetch("/api/openai", {
-			method: "POST",
-			headers: {
-				"Content-type": "application/json",
-			},
-			body: JSON.stringify({ userText }),
-		});
-		const { message } = await response.json();
-		console.log(message);
-		speak(message);
+		setIsLoading(true);
+		try {
+			const response = await fetch("/api/openai", {
+				method: "POST",
+				headers: {
+					"Content-type": "application/json",
+				},
+				body: JSON.stringify({ userText }),
+			});
+			const { message } = await response.json();
+			console.log(message);
+			speak(message);
+		} catch (error) {
+			let message = "";
+			if (error instanceof Error) message = error.message;
+			console.log(message);
+		} finally {
+			setIsLoading(false);
+			setUserText("");
+		}
 	}
 
 	return (
@@ -38,8 +49,11 @@ export const TextToSpeech = () => {
 				onChange={(e) => setUserText(e.target.value)}
 				placeholder="Enter text"
 			/>
-			<button className="text-yellow-500 p-2 border rounded-lg">
-				Speak
+			<button
+				disabled={isLoading}
+				className="text-yellow-500 p-2 border rounded-lg disabled:text-yellow-300"
+			>
+				{isLoading ? "thinking..." : "Speak"}
 			</button>
 		</form>
 	);
