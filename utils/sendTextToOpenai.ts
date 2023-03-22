@@ -6,6 +6,6 @@ export const sendTextToOpenAi = async (userText: string): Promise<string> => {
 		},
 		body: JSON.stringify({ userText }),
 	});
-	const { message } = await response.json();
+	const { message }: { message: string } = await response.json();
 	return message;
 };

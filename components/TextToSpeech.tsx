@@ -21,16 +21,7 @@ export const TextToSpeech = () => {
 		event.preventDefault();
 		setIsLoading(true);
 		try {
-			// const response = await fetch("/api/openai", {
-			// 	method: "POST",
-			// 	headers: {
-			// 		"Content-type": "application/json",
-			// 	},
-			// 	body: JSON.stringify({ userText }),
-			// });
-			// const { message } = await response.json();
 			const message = await sendTextToOpenAi(userText);
-			console.log(message);
 			speak(message);
 		} catch (error) {
 			let message = "";
@@ -53,7 +44,7 @@ export const TextToSpeech = () => {
 			/>
 			<button
 				disabled={isLoading}
-				className="text-yellow-500 p-2 border rounded-lg disabled:text-yellow-300"
+				className="text-yellow-500 p-2 border rounded-lg disabled:text-yellow-300 disabled:cursor-not-allowed"
 			>
 				{isLoading ? "thinking..." : "Speak"}
 			</button>
