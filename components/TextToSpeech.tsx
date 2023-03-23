@@ -2,7 +2,9 @@
 import { AppContext } from "../app/context/IsPlayingContext";
 import { sendTextToOpenAi } from "@/utils/sendTextToOpenai";
 import React, { FormEvent, useContext, useState } from "react";
-
+import yt from "../public/yt.webp";
+import Link from "next/link";
+import Image from "next/image";
 export const TextToSpeech = () => {
 	const [userText, setUserText] = useState("");
 	const [isLoading, setIsLoading] = useState(false);
@@ -50,17 +52,26 @@ export const TextToSpeech = () => {
 				<input
 					type="text"
 					value={userText}
-					className="bg-transparent w-[510px] border outline-none  rounded-lg placeholder:text-yellow-500 p-2 text-orange-500"
+					className="bg-transparent w-[510px] border border-[#b00c3f]/80 outline-none  rounded-lg placeholder:text-[#b00c3f] p-2 text-orange-500"
 					onChange={(e) => setUserText(e.target.value)}
 					placeholder="What do you want to know human...."
 				/>
 				<button
 					disabled={isLoading}
-					className="text-yellow-500 p-2 border rounded-lg disabled:text-yellow-100 disabled:cursor-not-allowed disabled:bg-gray-500"
+					className="text-[#b00c3f] p-2 border border-[#b00c3f] rounded-lg disabled:text-blue-100 disabled:cursor-not-allowed disabled:bg-gray-500 hover:scale-110 hover:bg-[#b00c3f] hover:text-black duration-300 transition-all"
 				>
 					{isLoading ? "thinking..." : "Ask"}
 				</button>
 			</form>
+			<div className="absolute top-3 right-3 ">
+				<Link
+					target="_blank"
+					href={"https://www.youtube.com/@developertak2634"}
+				>
+					<Image src={yt} alt="yt" height={50} width={50} />
+				</Link>
+				<div className="absolute top-0 bg-black/60" />
+			</div>
 		</div>
 	);
 };

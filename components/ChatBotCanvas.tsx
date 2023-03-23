@@ -78,7 +78,7 @@ const Head = () => {
 	);
 };
 
-export const ChatBotCanvasV2 = () => {
+export const ChatBotCanvas = () => {
 	return (
 		<Canvas>
 			<OrbitControls
@@ -89,7 +89,6 @@ export const ChatBotCanvasV2 = () => {
 				maxAzimuthAngle={Math.PI * 0.5}
 			/>
 			<color attach="background" args={["black"]} />
-			<fog attach="fog" args={["#202020", 5, 20]} />
 			<ambientLight intensity={0.015} />
 			<Suspense
 				fallback={
