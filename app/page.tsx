@@ -8,8 +8,8 @@ export default function Home() {
 		<main className="h-screen">
 			<IsPlayingProvider>
 				<TextToSpeech />
-				<ChatBotCanvas />
-				{/* <ChatBotCanvasV2 /> */}
+				{/* <ChatBotCanvas /> */}
+				<ChatBotCanvasV2 />
 			</IsPlayingProvider>
 		</main>
 	);

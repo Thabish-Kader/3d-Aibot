@@ -35,15 +35,20 @@ const Head = () => {
 	return (
 		<>
 			<primitive object={model.scene} scale={3} rotation-z={0.2} />
-			<MovingSpot
+			{/* <Torch
 				depthBuffer={depthBuffer}
 				color="#ffffff"
 				position={[3, 2, 2]}
-			/>
-			<MovingSpot
+			/> */}
+			{/* <Torch
 				depthBuffer={depthBuffer}
 				color="#b00c3f"
 				position={[-3, 2, 2]}
+			/> */}
+			<Torch
+				depthBuffer={depthBuffer}
+				color="#b00c3f"
+				position={[0, 2, 3]}
 			/>
 		</>
 	);
@@ -75,7 +80,7 @@ export const ChatBotCanvasV2 = () => {
 	);
 };
 
-function MovingSpot({ vec = new Vector3(), ...props }) {
+const Torch = ({ vec = new Vector3(), ...props }) => {
 	const light = useRef<THREE.SpotLight>(null);
 	const viewport = useThree((state) => state.viewport);
 	useFrame((state) => {
@@ -102,4 +107,4 @@ function MovingSpot({ vec = new Vector3(), ...props }) {
 			{...props}
 		/>
 	);
-}
+};
