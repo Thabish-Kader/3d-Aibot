@@ -10,11 +10,11 @@ export const TextToSpeech = () => {
 	const synth = typeof window !== "undefined" ? window.speechSynthesis : null;
 	const voices = synth?.getVoices();
 
-	const seletedVoice = voices?.find((voice) => voice.name === "Karen"); // Other voice that sounds good Karen, Tessa, Trinoids
+	const seletedVoice = voices?.find((voice) => voice.name === "Albert"); // Other voice that sounds good Karen, Tessa, Trinoids
 
 	const speak = (textToSpeak: string) => {
 		const utterance = new SpeechSynthesisUtterance(textToSpeak);
-		utterance.rate = 0.9;
+		utterance.rate = 0.2;
 		utterance.voice = seletedVoice!;
 
 		synth?.speak(utterance);

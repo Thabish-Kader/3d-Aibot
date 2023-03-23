@@ -14,6 +14,35 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Suspense, useContext, useEffect, useRef } from "react";
 import { Vector3 } from "three";
 
+const Torch = ({ vec = new Vector3(), ...props }) => {
+	const light = useRef<THREE.SpotLight>(null);
+	const viewport = useThree((state) => state.viewport);
+	useFrame((state) => {
+		light.current?.target.position.lerp(
+			vec.set(
+				(state.mouse.x * viewport.width) / 2,
+				(state.mouse.y * viewport.height) / 2,
+				0
+			),
+			0.1
+		);
+		light.current?.target.updateMatrixWorld();
+	});
+	return (
+		<SpotLight
+			castShadow
+			ref={light}
+			penumbra={1}
+			distance={10}
+			angle={0.35}
+			attenuation={5}
+			anglePower={4}
+			intensity={3}
+			{...props}
+		/>
+	);
+};
+
 //Resource to Head : https://sketchfab.com/3d-models/blender-sushi-virtual-journal-16th-april-2020-634af2ae983f4fb8a9295e6b1b3d5c74
 const Head = () => {
 	const { isPlaying, setIsPlaying } = useContext(AppContext);
@@ -35,20 +64,15 @@ const Head = () => {
 	return (
 		<>
 			<primitive object={model.scene} scale={3} rotation-z={0.2} />
-			{/* <Torch
+			<Torch
 				depthBuffer={depthBuffer}
-				color="#ffffff"
+				color="blue"
 				position={[3, 2, 2]}
-			/> */}
-			{/* <Torch
-				depthBuffer={depthBuffer}
-				color="#b00c3f"
-				position={[-3, 2, 2]}
-			/> */}
+			/>
 			<Torch
 				depthBuffer={depthBuffer}
 				color="#b00c3f"
-				position={[0, 2, 3]}
+				position={[-3, 2, 2]}
 			/>
 		</>
 	);
@@ -77,34 +101,5 @@ export const ChatBotCanvasV2 = () => {
 				<Head />
 			</Suspense>
 		</Canvas>
-	);
-};
-
-const Torch = ({ vec = new Vector3(), ...props }) => {
-	const light = useRef<THREE.SpotLight>(null);
-	const viewport = useThree((state) => state.viewport);
-	useFrame((state) => {
-		light.current?.target.position.lerp(
-			vec.set(
-				(state.mouse.x * viewport.width) / 2,
-				(state.mouse.y * viewport.height) / 2,
-				0
-			),
-			0.1
-		);
-		light.current?.target.updateMatrixWorld();
-	});
-	return (
-		<SpotLight
-			castShadow
-			ref={light}
-			penumbra={1}
-			distance={10}
-			angle={0.35}
-			attenuation={5}
-			anglePower={4}
-			intensity={3}
-			{...props}
-		/>
 	);
 };

@@ -23,7 +23,7 @@ export async function POST(request: Request) {
 	return NextResponse.json(
 		{
 			message:
-				"In the history of Europe, the Middle Ages or medieval period (also spelled mediæval or mediaeval) lasted approximately from the late 5th to the late 15th centuries, similar to the post-classical period of global history.",
+				"hey there visitor this is thabish here... the developer who created this creepy project. I have revoked the API key for this project. Why... you ask because... i dont want to go bankrupt obviosly. If you wanna see how this wroks check out my YouTube video on this ",
 		},
 		{ status: 200 }
 	);
