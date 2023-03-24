@@ -28,7 +28,7 @@ export const TextToSpeech = () => {
 
 	async function handleUserText(event: FormEvent<HTMLFormElement>) {
 		event.preventDefault();
-
+		if (userText === "") return alert("Please enter text");
 		setIsLoading(true);
 		try {
 			const message = await sendTextToOpenAi(userText);
@@ -52,7 +52,7 @@ export const TextToSpeech = () => {
 				<input
 					type="text"
 					value={userText}
-					className="bg-transparent w-[510px] border border-[#b00c3f]/80 outline-none  rounded-lg placeholder:text-[#b00c3f] p-2 text-orange-500"
+					className="bg-transparent w-[510px] border border-[#b00c3f]/80 outline-none  rounded-lg placeholder:text-[#b00c3f] p-2 text-[#b00c3f]"
 					onChange={(e) => setUserText(e.target.value)}
 					placeholder="What do you want to know human...."
 				/>
