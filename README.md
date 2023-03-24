@@ -15,6 +15,14 @@ I'm thrilled to introduce you to my latest project, which harnesses the power of
 
 [Live Demo](https://3d-chatbot.vercel.app/)
 
+<img width="1680" alt="Screenshot 2023-03-24 at 9 54 50 AM" src="https://user-images.githubusercontent.com/76642519/227436694-de698e65-9c71-4a2a-a948-84e4905aa53e.png">
+
+![Screenshot 2023-03-24 at 9 55 24 AM](https://user-images.githubusercontent.com/76642519/227437131-f294daa8-754d-42b8-9ffe-b85f1718927c.png)
+
+<img width="1674" alt="Screenshot 2023-03-24 at 9 55 33 AM" src="https://user-images.githubusercontent.com/76642519/227437017-20296804-0b03-4e0c-a709-c2a8a600bb7b.png">
+
+
+
 ### References
 
 -   [Chat API OpenAi](https://platform.openai.com/docs/api-reference/chat/create)
