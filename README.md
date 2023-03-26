@@ -11,7 +11,7 @@
 <br/>
 <br/>
 
-I'm thrilled to introduce you to my latest project, which harnesses the power of React Three Fiber and OpenAI to create an incredible new experience. With stunning 3D graphics and full interactivity, this project immerses you in a world where AI technology comes to life in ways you never thought possible. Come explore and discover the limitless potential of this groundbreaking technology!
+I'm thrilled to introduce you to my latest project, which harnesses the power of React Three Fiber and OpenAI to create an incredible new experience. With stunning 3D graphics and full interactivity, this project immerses you in a world where AI technology comes to life in ways you never thought possible. Come explore and discover the limitless potential of this groundbreaking technology
 
 [Live Demo](https://3d-chatbot.vercel.app/)
 
@@ -20,8 +20,6 @@ I'm thrilled to introduce you to my latest project, which harnesses the power of
 ![Screenshot 2023-03-24 at 9 55 24 AM](https://user-images.githubusercontent.com/76642519/227437131-f294daa8-754d-42b8-9ffe-b85f1718927c.png)
 
 <img width="1674" alt="Screenshot 2023-03-24 at 9 55 33 AM" src="https://user-images.githubusercontent.com/76642519/227437017-20296804-0b03-4e0c-a709-c2a8a600bb7b.png">
-
-
 
 ### References
 
