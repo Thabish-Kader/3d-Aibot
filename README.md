@@ -15,6 +15,10 @@ I'm thrilled to introduce you to my latest project, which harnesses the power of
 
 [Live Demo](https://3d-chatbot.vercel.app/)
 
+
+## YT
+[![Create your own 3D AI bot : Next js 13, OpenAi, React, Three.js](https://ytcards.demolab.com/?id=LdNoGGZd72c&title=Create+your+own+3D+AI+bot+%3A+Next+js+13%2C+OpenAi%2C+React%2C+Three.js&lang=en&timestamp=1680811207&background_color=%230d1117&title_color=%23ffffff&stats_color=%23dedede&width=250 "Create your own 3D AI bot : Next js 13, OpenAi, React, Three.js")](https://www.youtube.com/watch?v=LdNoGGZd72c)
+
 <img width="1680" alt="Screenshot 2023-03-24 at 9 54 50 AM" src="https://user-images.githubusercontent.com/76642519/227436694-de698e65-9c71-4a2a-a948-84e4905aa53e.png">
 
 ![Screenshot 2023-03-24 at 9 55 24 AM](https://user-images.githubusercontent.com/76642519/227437131-f294daa8-754d-42b8-9ffe-b85f1718927c.png)
